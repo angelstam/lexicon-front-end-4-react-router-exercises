@@ -3,6 +3,9 @@ import App from "./App";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import Stats from "./components/Stats";
+import Settings from "./components/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +23,21 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+        children: [
+          {
+            index: true,
+            path: "stats",
+            element: <Stats />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+        ],
       },
     ],
   },
